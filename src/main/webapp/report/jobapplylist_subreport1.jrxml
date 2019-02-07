@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jobapplylist_subreport1" language="groovy" pageWidth="555" pageHeight="822" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="4a059263-c7a2-4c40-814d-434666176f00">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="jobid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT jobapply.applyid,
+       jobapply.jobid,
+       jobapply.expectedsalary,
+       jobapply.coverletter,
+       userprofile.firstname,
+       userprofile.mobilenumber,
+       jobapply.applydate,
+       userprofile.emailid,
+       userprofile.lastname
+FROM alumni.jobapply jobapply
+     INNER JOIN alumni.userprofile userprofile
+        ON (jobapply.emailid = userprofile.emailid)
+	where jobapply.jobid = $P{jobid}]]>
+	</queryString>
+	<field name="applyid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jobid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="expectedsalary" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="coverletter" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="firstname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mobilenumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="applydate" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="5" width="553" height="20" backcolor="#666666" uuid="6a61f885-62fe-4300-86bd-9b69f6069deb"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="38" height="15" uuid="f85742d5-9d59-4a21-b799-634f5cb2a110"/>
+					<text><![CDATA[SL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="38" y="0" width="65" height="15" uuid="bea5640c-5f98-4d09-9a69-051dd80177e2"/>
+					<text><![CDATA[firstname]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="103" y="0" width="65" height="15" uuid="39941c15-5695-415d-8d78-8038f256d164"/>
+					<text><![CDATA[lastname]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="168" y="0" width="115" height="15" uuid="25744fd5-4f6c-4675-9d22-6728b4721405"/>
+					<text><![CDATA[emailid]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="283" y="0" width="109" height="15" uuid="dcd905ae-2540-4ce1-812d-2b171b0db97e"/>
+					<text><![CDATA[mobile number]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="392" y="0" width="57" height="15" uuid="108062df-577a-45db-a7b8-d1fde05d5545"/>
+					<text><![CDATA[exp salary]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="449" y="0" width="92" height="15" uuid="0c426eaf-2de0-4e0e-bc53-ad46b08a0ccd"/>
+					<text><![CDATA[apply date]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="2" y="1" width="541" height="15" uuid="082cab76-32f3-42e2-96e9-c35e2bc3d265"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="38" height="15" uuid="ad4fc630-67a1-4758-bdca-e8a681d28e36"/>
+					<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="38" y="0" width="65" height="15" uuid="253778ad-984a-4494-92a8-6f40f1b5fbf7"/>
+					<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="103" y="0" width="65" height="15" uuid="61151432-e0de-4691-bebe-27ecde65d6d7"/>
+					<textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="168" y="0" width="115" height="15" uuid="a98cc648-ac33-4279-906b-77dea47f85ca"/>
+					<textFieldExpression><![CDATA[$F{emailid}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="283" y="0" width="109" height="15" uuid="e614b3a3-c378-490c-95b9-20a9e61f296b"/>
+					<textFieldExpression><![CDATA[$F{mobilenumber}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="392" y="0" width="57" height="15" uuid="2b50fbd2-111c-42e1-8bf9-b210ea31cfe7"/>
+					<textFieldExpression><![CDATA[$F{expectedsalary}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="449" y="0" width="92" height="15" uuid="4322f625-2d5c-4ff2-b3a4-96b8886234bf"/>
+					<textFieldExpression><![CDATA[$F{applydate}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="458" height="1" uuid="5c7afc89-1537-44bc-b425-15a5c97f285b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

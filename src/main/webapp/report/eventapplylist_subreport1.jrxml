@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="eventapplylist_subreport1" language="groovy" pageWidth="555" pageHeight="822" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2216942e-b955-404c-9635-80725a4f64e6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="eventid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT userprofile.firstname,
+       eventrespons.responsdate,
+       eventrespons.evstatus,
+       eventrespons.comment,
+       userprofile.lastname,
+       userprofile.mobilenumber,
+       userprofile.emailid
+FROM alumni.eventrespons eventrespons
+     INNER JOIN alumni.userprofile userprofile
+        ON (eventrespons.emailid = userprofile.emailid)
+	where eventrespons.eventid =$P{eventid}]]>
+	</queryString>
+	<field name="firstname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="responsdate" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="evstatus" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mobilenumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="3" y="5" width="552" height="20" backcolor="#666666" uuid="0f19aca9-bbda-4e38-a3ee-ce13d7fbf1d0"/>
+				<staticText>
+					<reportElement x="0" y="0" width="20" height="19" forecolor="#FFFFFF" uuid="a870f91c-e657-4ef3-ba16-565cacdf94ce"/>
+					<text><![CDATA[Sl]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="24" y="0" width="57" height="15" uuid="a8b4d602-f6d8-40b0-a533-9b9c3a657bfa"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[firstname]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="89" y="0" width="57" height="15" uuid="bbf1b9ea-7da7-49bf-b7b0-7edde517b92f"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[lastname]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="146" y="0" width="76" height="15" uuid="74f62a87-1a39-47b7-af8b-6536733ebd9b"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[mobilenumber]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="222" y="0" width="99" height="15" uuid="7ef2ae6e-e87b-417e-9d42-d2b89a237de0"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[emailid]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="455" y="0" width="97" height="15" uuid="c5cf1ba1-1109-4625-88b6-af93e9b16fc9"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[responsdate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="321" y="0" width="134" height="15" uuid="6950524f-cfd0-43e6-be1f-aae0e19b224e"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[comment]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="3" y="1" width="552" height="15" uuid="b4252522-5058-4e10-b4b5-5a0dcc787724"/>
+				<textField>
+					<reportElement style="Detail" x="24" y="0" width="57" height="15" uuid="ad4b5c50-65b1-4925-b019-b985575da0fa"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{firstname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="89" y="0" width="57" height="15" uuid="e08868b9-c638-4fa8-b41e-78527be2f839"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{lastname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="146" y="0" width="76" height="15" uuid="57b43b79-f23e-4560-a95d-021c4e876bd2"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{mobilenumber}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="222" y="0" width="99" height="15" uuid="337c895e-3541-42d1-8b28-25e3be2608b5"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{emailid}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="455" y="0" width="97" height="15" uuid="b8ec3e01-c48e-4b42-b43b-25ce0fc94c80"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{responsdate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="321" y="0" width="134" height="15" uuid="6227fdff-6a31-4ab4-96d0-4461533f3767"/>
+					<textElement textAlignment="Center">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{comment}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="3" y="0" width="20" height="20" uuid="232ee319-e9fb-44c5-894c-690f0ca8ae45"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
