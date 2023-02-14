@@ -13,8 +13,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="alumni" options="-endorseddirs /Users/app-dev/Documents/javaproject/alamni/alumni-association/target/endorsed" />
-      <module name="alumni-association" options="-endorseddirs /Users/app-dev/Documents/javaproject/alamni/alumni-association/target/endorsed" />
+      <module name="alumni" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
+      <module name="alumni-association" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
     </option>
   </component>
 </project>

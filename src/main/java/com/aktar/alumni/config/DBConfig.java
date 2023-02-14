@@ -57,7 +57,7 @@ public class DBConfig {
     public HibernateTransactionManager transactionManager(SessionFactory s) {
        HibernateTransactionManager txManager = new HibernateTransactionManager();
        txManager.setSessionFactory(s);
-       return txManager;
+       return txManager; 
     }
     private Properties hibernateProperties() {
         Properties properties = new Properties();
