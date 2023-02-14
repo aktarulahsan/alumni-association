@@ -17,7 +17,7 @@ import com.aktar.alumni.model.Jobhistory;
 import com.aktar.alumni.model.Skill;
 import com.aktar.alumni.model.User;
 import com.aktar.alumni.model.Userprofile;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+//import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
