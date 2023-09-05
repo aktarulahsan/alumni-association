@@ -42,7 +42,7 @@ public class DBConfig {
     public DataSource getDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/alumni");
+        dataSource.setUrl("jdbc:mysql://localhost:3308/alumni");
         dataSource.setUsername("root");
         dataSource.setPassword("123");
         return dataSource;

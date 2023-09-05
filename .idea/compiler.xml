@@ -14,7 +14,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="alumni" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
-      <module name="alumni-association" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
+      <module name="alumni-association" options="-endorseddirs &quot;E:\13. SPRING MVC Sub-13\Projects\alumni-association\target/endorsed&quot;" />
     </option>
   </component>
 </project>
